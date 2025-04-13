@@ -95,3 +95,4 @@
 /Users/napatsakornpianchana/Documents/m2/project/2025/tnt/MyMvcApp/obj/Debug/net9.0/MyMvcApp.pdb
 /Users/napatsakornpianchana/Documents/m2/project/2025/tnt/MyMvcApp/obj/Debug/net9.0/MyMvcApp.genruntimeconfig.cache
 /Users/napatsakornpianchana/Documents/m2/project/2025/tnt/MyMvcApp/obj/Debug/net9.0/ref/MyMvcApp.dll
+/Users/napatsakornpianchana/Documents/m2/project/2025/tnt/MyMvcApp/obj/Debug/net9.0/MyMvcApp.sourcelink.json

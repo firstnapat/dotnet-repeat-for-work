@@ -8,14 +8,10 @@ namespace MyMvcApp.Controllers
         {   
             return View();
         }
-        public IActionResult Details()
+        public IActionResult Create()
         {
-            return Content("รายละเอียดคะแนนสอบวิชาคอมโปรแกรมมิ่ง 2");
+            return View();
      
-        }
-        public IActionResult ShowScore(int id)
-        {
-            return Content($"คะแนนสอบวิชาคอมโปรแกรมมิ่ง 2 ของนักเรียนที่มีรหัส {id}");
         }
     }
 }
