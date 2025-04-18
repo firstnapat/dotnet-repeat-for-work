@@ -1,5 +1,25 @@
+@model IEnumerable<MyMvcApp.Models.Student>;
 @{
     ViewData["Title"] = "หน้าแรก";
 }
 
-<h1 class="text-center">หน้าแรกของเว็บไซต์</h1>
+<h1 class="text-center">คะแนนสอบวิชาคอมโปรแกรมมิ่ง</h1>
+
+@foreach(var student in Model)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">รหัสนักเรียน: @student.Id</h5>
+            <p class="card-text">ชื่อ: @student.Name</p>
+            <p class="card-text">คะแนน: @student.Score</p>
+            @if (student.Score >= 50)
+            {
+                <strong class="text-success">ผ่าน</strong>
+            }
+            else
+            {
+                <strong class="text-danger">ไม่ผ่าน</strong>
+            }
+        </div>
+    </div>
+}
