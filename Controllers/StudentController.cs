@@ -1,38 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
+using MyMvcApp.Data;
 using MyMvcApp.Models;
 
 namespace MyMvcApp.Controllers
 {
     public class StudentController : Controller
-    {
+    {   
+        private readonly ApplicationDBContext _dbContext;
+
+        public StudentController(ApplicationDBContext dbContext)
+        { 
+            _dbContext = dbContext;
+        }
+
         public IActionResult Index()
         {   
-            Student s1 = new Student();
-            s1.Id = 1;
-            s1.Name = "John Doe";
-            s1.Score = 90;
-            
-            var s2 = new Student();
-            s2.Id = 2;
-            s2.Name = "Jane Smith";
-            s2.Score = 85;
-
-            Student s3 = new();
-            s3.Id = 3;
-            s3.Name = "Sam Brown";
-            s3.Score = 49;
-
-            List<Student> allStudents = new List<Student>();
-            allStudents.Add(s1);
-            allStudents.Add(s2);
-            allStudents.Add(s3);
-
+            IEnumerable <Student> allStudents = _dbContext.Students;
             return View(allStudents);
         }
+        
         public IActionResult Create()
         {
             return View();
-     
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Student obj)
+        {   
+            _dbContext.Students.Add(obj);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
